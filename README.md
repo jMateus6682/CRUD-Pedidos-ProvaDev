@@ -69,7 +69,7 @@ Selecione as seguintes opções na instalação:
 
 ## 🚀 Como executar o projeto
 
-1. Execute "script SQL de criação da tabela - Pedido.sql" em "\CRUD-Pedidos-ProvaDev\CRUD_pedidos\script SQL de criação da tabela - Pedido.sql" para criar automaticamente a tabela Pedido no BD
+1. Depois de abrir o projeto no visual studio, execute "script SQL de criação da tabela - Pedido.sql" em "\CRUD-Pedidos-ProvaDev\CRUD_pedidos\script SQL de criação da tabela - Pedido.sql" para criar automaticamente a tabela Pedido no BD
 
 2. Se der certo pula para o item 3.
 
