@@ -14,10 +14,25 @@ Prova Prática - Desenvolvedor (UCDB)
 O candidato deverá desenvolver um CRUD para cadastrar pedidos de pagamentos para produtos.
 Os produtos possuem os seguintes atributos:
 
-| Pedido |
-| nome_produto | string |
-| valor | decimal |
-| data_vencimento| date |
+<table>
+<thead>
+<tr><th colspan="4">Pedido</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>nome_produto</td>
+<td>string</td>
+</tr>
+<tr>
+<td>valor</td>
+<td>decimal</td>
+</tr>
+<tr>
+<td>data_vencimento</td>
+<td>date</td>
+</tr>
+</tbody>
+</table>
 
 Na listagem dos pedidos o sistema deve categorizar por cores os pedidos que:
 
@@ -28,7 +43,7 @@ Na listagem dos pedidos o sistema deve categorizar por cores os pedidos que:
 3. Estão validos
    Pedidos em que a data de vencimento é maior que 3 dias da data atual;
 
-## O candidato também terá que desenvolver uma tela para adicionar descontos no valor do pedido. Somente os pedidos que não estão vencidos podem receber descontos.
+O candidato também terá que desenvolver uma tela para adicionar descontos no valor do pedido. Somente os pedidos que não estão vencidos podem receber descontos.
 
 ## ⚙️ Funcionalidades
 
