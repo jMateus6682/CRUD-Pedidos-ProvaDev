@@ -69,11 +69,9 @@ Selecione as seguintes opções na instalação:
 
 ## 🚀 Como executar o projeto
 
-1. Depois de abrir o projeto no visual studio, execute "script SQL de criação da tabela - Pedido.sql" em "\CRUD-Pedidos-ProvaDev\CRUD_pedidos\script SQL de criação da tabela - Pedido.sql" para criar automaticamente a tabela Pedido no BD
+1. Execute "CRUD_pedidos.sln" em ".\CRUD-Pedidos-ProvaDev\CRUD_pedidos\CRUD_pedidos.sln" para abrir o projeto no Visual Studio
 
-2. Se der certo pula para o item 3.
-
-Caso de problema na criação automática da tabela siga os passos asseguir para criar no projeto a tabela manualmente:
+2. Recriar a DataBase e a tabela no seu pc:
 
 Dentro da pasta "App_Data" delete o arquivo "Pedidos.mdf":
 
@@ -109,9 +107,7 @@ Clique no Update Database:
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/4pKfvdN/clicando-no-update-database.png" alt="clicando-no-update-database" border="0"></a>
 
-3. Execute "CRUD_pedidos.sln" em ".\CRUD-Pedidos-ProvaDev\CRUD_pedidos\CRUD_pedidos.sln" para abrir o projeto no Visual Studio
-
-4. Clique no botão "IIS Express"
+3. Clique no botão "IIS Express"
    <a href="https://ibb.co/wJQVswC"><img src="https://i.ibb.co/PTWKQ94/executar.png" alt="executar" border="0"></a>
 
 ---
