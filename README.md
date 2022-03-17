@@ -63,6 +63,7 @@ O candidato também terá que desenvolver uma tela para adicionar descontos no v
 
 Instale:
 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15&WT.mc_id=javascript-0000-gllemos)
+
 Selecione as seguintes opções na instalação:
 <a href="https://ibb.co/dfwfVDF"><img src="https://i.ibb.co/NFdFJK5/recursos-visual-studio.png" alt="recursos-visual-studio" border="0"></a>
 
