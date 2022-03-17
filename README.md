@@ -118,7 +118,7 @@ Clique no Update Database:
 
 ## 😢 Observação:
 
-Devido a um problema na conversão do formato DateTime para uma string formatada ("dd/MM/yyyy") o formato de exibição das datas ficou errado:
+Devido a um problema na conversão do formato DateTime para uma string formatada ("dd/MM/yyyy") o formato de exibição das datas ficaram erradas:
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/qM225kw/formato-errado.png" alt="formato-errado" border="0"></a>
 
