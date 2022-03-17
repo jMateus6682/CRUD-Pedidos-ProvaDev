@@ -82,20 +82,24 @@ Adicione um novo arquivo do tipo "Banco de Dados do SQL Server dentro" da "App_D
 <a href="https://ibb.co/bXC6Fw5"><img src="https://i.ibb.co/5LS1kph/Adicionar-novo-Pedidos-mdf.png" alt="Adicionar-novo-Pedidos-mdf" border="0"></a>
 <a href="https://ibb.co/r6fL262"><img src="https://i.ibb.co/Njnk2j2/Adicionar-novo-Pedidos-mdf-part2.png" alt="Adicionar-novo-Pedidos-mdf-part2" border="0"></a>
 
-Clique duas vezes no "Pedidos.mdf criado para abrir o BD e cria uma nova tabela:
+Clique duas vezes no "Pedidos.mdf criado para abrir o BD, e crie uma nova tabela:
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/Hh0jzGf/Adicionar-novo-Pedidos-mdf-part3.png" alt="Adicionar-novo-Pedidos-mdf-part3" border="0"></a>
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/s970P2N/ADICIONAR-UMA-NOVA-TABELA-NO-BD.png" alt="ADICIONAR-UMA-NOVA-TABELA-NO-BD" border="0"></a>
 
 Copie e cole dentro do T-SQL o código abaixo :
 
-<p> CREATE TABLE [dbo].[Pedido] (                               </p>
-<p>    [PedidoId]        INT            IDENTITY (1, 1) NOT NULL, </p>
-<p>    [nome_produto]    NVARCHAR (100) NULL, </p>
-<p>    [valor]           DECIMAL (18)   NULL, </p>
-<p>    [data_vencimento] DATE           NULL, </p>
-<p>    PRIMARY KEY CLUSTERED ([PedidoId] ASC) </p>
-<p>);
+```sql
+CREATE TABLE [dbo].[Pedido]
+(
+    [PedidoId] INT            IDENTITY (1, 1) NOT NULL,
+    [nome_produto]          NVARCHAR (100) NULL,
+    [valor]  				DECIMAL NULL,
+    [data_vencimento]        DATE NULL,
+    PRIMARY KEY CLUSTERED ([PedidoId] ASC)
+)
+
+```
 
 <a href="https://ibb.co/NWP024L"><img src="https://i.ibb.co/SV8kwLK/Colando-o-sql.png" alt="Colando-o-sql" border="0"></a>
 
