@@ -114,6 +114,13 @@ Clique no Update Database:
 3. Clique no botão "IIS Express"
    <a href="https://ibb.co/wJQVswC"><img src="https://i.ibb.co/PTWKQ94/executar.png" alt="executar" border="0"></a>
 
+Caso de o erro: Erro ao encontrar o arquivo: roslyn\csc.exe
+Use o comando no console do NuGet
+
+```
+Install-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -Version 2.0.1
+```
+
 ---
 
 ## 😢 Observação:
@@ -122,7 +129,7 @@ Devido a um problema na conversão do formato DateTime para uma string formatada
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/qM225kw/formato-errado.png" alt="formato-errado" border="0"></a>
 
-Consequentemente quebrou a função de definir a cor do background de acordo com o estado, porque o Pedido.data_vencimento no formato estranho como na imagem acima, ao converter esta chegando na função como "01/01/0001", mesmo no banco de dados mostrando a data certa, sendo assim, sempre retornando como produto vencido.
+Consequentemente quebrou a função de definir a cor do background de acordo com o estado, porque o Pedido.data_vencimento no formato estranho como na imagem acima, ao converter, esta chegando na função como "01/01/0001", mesmo no banco de dados mostrando a data certa, sendo assim, sempre retornando como produto vencido.
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/YPVZxsK/fun-o-estado.png" alt="fun-o-estado" border="0"></a>
 
