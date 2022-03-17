@@ -70,8 +70,45 @@ Selecione as seguintes opções na instalação:
 ## 🚀 Como executar o projeto
 
 1. Execute "script SQL de criação da tabela - Pedido.sql" para criar a tabela Pedido no SQL server
-2. Execute "CRUD_pedidos.sln" para abrir o projeto no Visual Studio
-3. Clique no botão "IIS Express"
+2. Caso de problema na criação automática da tabela siga os passos asseguir para criar no projeto a tabela manualmente:
+
+Dentro da pasta "App_Data" delete o arquivo "Pedidos.mdf"
+<a href="https://ibb.co/sbwptP6"><img src="https://i.ibb.co/17qYbnd/App-Data-deletando.png" alt="App-Data-deletando" border="0"></a>
+
+Adicione um novo arquivo do tipo "Banco de Dados do SQL Server dentro" da "App_Data" com o nome de "Pedidos.mdf"
+<a href="https://ibb.co/bXC6Fw5"><img src="https://i.ibb.co/5LS1kph/Adicionar-novo-Pedidos-mdf.png" alt="Adicionar-novo-Pedidos-mdf" border="0"></a>
+
+<a href="https://ibb.co/r6fL262"><img src="https://i.ibb.co/Njnk2j2/Adicionar-novo-Pedidos-mdf-part2.png" alt="Adicionar-novo-Pedidos-mdf-part2" border="0"></a>
+
+Clique duas vezes no "Pedidos.mdf criado para abrir o BD e cria uma nova tabela:
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/Hh0jzGf/Adicionar-novo-Pedidos-mdf-part3.png" alt="Adicionar-novo-Pedidos-mdf-part3" border="0"></a>
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/s970P2N/ADICIONAR-UMA-NOVA-TABELA-NO-BD.png" alt="ADICIONAR-UMA-NOVA-TABELA-NO-BD" border="0"></a>
+
+Copie e cole o códico abaixo dentro do T-SQL:
+
+<p>
+CREATE TABLE [dbo].[Pedido] (
+    [PedidoId]        INT            IDENTITY (1, 1) NOT NULL,
+    [nome_produto]    NVARCHAR (100) NULL,
+    [valor]           DECIMAL (18)   NULL,
+    [data_vencimento] DATE           NULL,
+    PRIMARY KEY CLUSTERED ([PedidoId] ASC)
+);
+</p>
+
+<a href="https://ibb.co/NWP024L"><img src="https://i.ibb.co/SV8kwLK/Colando-o-sql.png" alt="Colando-o-sql" border="0"></a>
+
+Clique no botão Update:
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/vLk88wv/clicando-no-botao-update.png" alt="clicando-no-botao-update" border="0"></a>
+
+Clique no Update Database:
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/4pKfvdN/clicando-no-update-database.png" alt="clicando-no-update-database" border="0"></a>
+
+3. Execute "CRUD_pedidos.sln" para abrir o projeto no Visual Studio
+4. Clique no botão "IIS Express"
    <a href="https://ibb.co/wJQVswC"><img src="https://i.ibb.co/PTWKQ94/executar.png" alt="executar" border="0"></a>
 
 ---
+
+## README ainda em desenvolvimento
