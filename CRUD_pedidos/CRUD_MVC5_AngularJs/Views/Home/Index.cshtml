@@ -1,0 +1,185 @@
+﻿<div class="container" ng-controller="pedidoCtrl">
+    @* INÍCIO DIV - panel panel-info *@
+    <div class="panel panel-info">
+        <div class="panel-heading">Listar Pedidos</div>
+        <div class="panel-body">
+            <button type="button" class="btn btn-info" data-target="#AdicionarPedido" data-toggle="modal">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </div>
+        <table class="table table-bordered">
+            <thead style="background-color: grey;">
+                <tr>
+                    <th class="text-center">Id Pedido</th>
+                    <th class="text-center">Nome do Pedido</th>
+                    <th class="text-center">Valor</th>
+                    <th class="text-center">Data de Vencimento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="func in Pedidos" >
+                    <td class="text-center">{{func.PedidoId}}</td>
+                    <td class="text-center">{{func.nome_produto}}</td>
+                    <td class="text-center">{{func.valor}}</td>
+                    <td ng-style ="{ 'background-color': setarCor }" class="text-center">
+                        {{func.data_vencimento |  date:"yyyy/MM/dd"}}
+                    </td>
+                    <td class="text-center" style="width: 200px;">
+                        <a href="#"
+                           data-target="#AtualizarPedido"
+                           data-toggle="modal" class="btn btn-success"
+                           ng-click="atualizarPedidoPorId(func)">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a href="#"
+                           data-target="#ExcluirPedido"
+                           id="btnExcluir"
+                           data-toggle="modal" class="btn btn-danger"
+                           ng-click="excluirPedidoPorId(func)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                        <a href="#"
+                           data-target="#Desconto"
+                           id="btnDesconto"
+                           data-toggle="modal" class="btn btn-link"
+                           ng-click="adicionarDesconto(func) ">
+                            <span class="glyphicon glyphicon-usd"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        @* INÍCIO MODAL - ADICIONAR Pedido *@
+        <div class="modal" id="AdicionarPedido" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="text-info">Adicionar Pedido</h3>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" name="AdicionarNovoPedidoForm">
+                            <div class="form-group">
+                                <input class="form-control" readonly="readonly" name="pedidoId" type="hidden" placeholder="Id Pedido" />
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="nome" ng-model="nome_produto" placeholder="Nome Pedido" />
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="number" name="nome" ng-model="valor" placeholder="Valor" />
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="date" name="nome" ng-model="data_vencimento" placeholder="Data de Vencimento" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnSalvar" data-dismiss="modal" ng-click="adicionarPedido()">Adicionar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="limparDados()">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @* FIM MODAL - ADICIONAR Pedido *@
+        @* INÍCIO MODAL - ATUALIZAR Pedido *@
+        <div class="modal" id="AtualizarPedido" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="text-info">Atualizar Pedido</h3>
+                    </div>
+                    <div class="modal-body" style="margin-left: 20px">
+                        <form class="form-horizontal" name="AtualizarForm">
+                            <div class="form-group">
+                                <input class="form-control" readonly="readonly" name="PedidoId" ng-model="AtualizadoPedidoId" type="hidden" placeholder="Pedido Id" />
+                            </div>
+                            <div class="form-group">
+                                <label class="text-info"> Nome:</label>
+                                <input class="form-control" name="Nome_produto" ng-model="AtualizadoNome_produto" type="text" placeholder="Nome" />
+                            </div>
+                            <div class="form-group">
+                                <label class="text-info"> Valor:</label>
+                                <input class="form-control" name="Valor" ng-model="AtualizadoValor" type="text" placeholder="Valor" />
+                            </div>
+                            <div class="form-group">
+                                <label class="text-info"> Data de Vencimento:</label>
+                                <input class="form-control" name="Data_vencimento" ng-model="AtualizadoData_vencimento" type="text" placeholder="Data de Vencimento" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnUpdate" data-dismiss="modal" ng-click="atualizarPedido()">
+                            Atualizar
+                        </button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @* FIM MODAL - ATUALIZAR Pedido *@
+
+        @* INÍCIO MODAL - Desconto *@
+        <div class="modal" id="Desconto" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="text-info">Adicionar Desconto</h3>
+                    </div>
+                    <div class="modal-body" style="margin-left: 20px">
+                        <form class="form-horizontal" name="DescontoForm">
+                            <div class="form-group">
+                                <input class="form-control" readonly="readonly" name="PedidoId" ng-model="AtualizadoPedidoId" type="hidden" placeholder="Pedido Id" />
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" name="Nome_produto" ng-model="AtualizadoNome_produto" type="hidden" placeholder="Nome" />
+                            </div>
+                            <div class="form-group">
+                                <label class="text-info"> Valor:</label>
+                                <input class="form-control" name="Valor" ng-model="AtualizadoValor" type="text" placeholder="R$" />
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" name="Data_vencimento" ng-model="AtualizadoData_vencimento" type="hidden" placeholder="Data de Vencimento" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnDesconto" data-dismiss="modal" ng-click="darDesconto()">
+                            Adicionar Desconto
+                        </button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @* FIM MODAL - Desconto *@
+
+        @* INÍCIO MODAL - EXCLUIR Pedido *@
+        <div class="modal" role="dialog" id="ExcluirPedido">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="text-info">Você tem certeza que deseja excluir o Pedido?</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <p>Id do Pedido : {{AtualizadoPedidoId}}</p>
+                            <p>Nome do Pedido : {{AtualizadoNome_produto}}</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="excluirPedido(AtualizadoPedidoId)">Excluir</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @* FIM MODAL - EXCLUIR Pedido *@
+    </div>
+    @* FIM DIV - panel panel-info *@
+
+</div>
+
+@section scripts {
+    <script src="~/AngularJsApp/Pedido/Module.js"></script>
+    <script src="~/AngularJsApp/Pedido/Service.js"></script>
+    <script src="~/AngularJsApp/Pedido/Controller.js"></script>
+}
