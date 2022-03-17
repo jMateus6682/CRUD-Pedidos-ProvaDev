@@ -130,6 +130,10 @@ De tabela quebrou tambem a parte da função de dar desconto que bloqueia o adic
 
 <a href="https://ibb.co/Hp4kYKk"><img src="https://i.ibb.co/zHx0bm0/fun-o-Dar-Desconto.png" alt="fun-o-Dar-Desconto" border="0"></a>
 
+Tentei arrumar a conversão da data de varias maneiras que vi nos fóruns, mas nenhuma funciono.
+
+Acho que é alguma coisa com o angular js que fiz errado, passei umas 4h fazendo toda aplicação e o resto tentando arrumar a data.
+
 ## Demonstração:
 
 <a href="https://ibb.co/D1fXN8g"><img src="https://i.ibb.co/2F32wsY/giff.gif" alt="giff" border="0"></a>
