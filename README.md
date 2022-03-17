@@ -55,7 +55,7 @@ O candidato também terá que desenvolver uma tela para adicionar descontos no v
 
 ## 🎨 Layout
 
-<a href="https://ibb.co/jLx9R9k"><img src="https://i.ibb.co/mHYr8r5/layot.png" alt="layout" border="0"></a>
+<a href="https://ibb.co/DWvjkLZ"><img src="https://i.ibb.co/XLKGpVq/layout.png" alt="layout" border="0"></a>
 
 ---
 
