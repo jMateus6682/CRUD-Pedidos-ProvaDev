@@ -1,6 +1,6 @@
 ## Recursos Utilizados no Desenvolvimento da Aplicação:
 
-- Visual Studio 2017 -
+- Visual Studio 2017
 - Asp.NET MVC 5
 - Entity Framework 5.0 (ADO.NET Entity Data Model)
 - .NET Framework 4.5.2
