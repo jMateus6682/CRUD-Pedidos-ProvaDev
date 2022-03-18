@@ -132,10 +132,7 @@ Update-Package -reinstal
 
 ---
 
-## Observação:
-
-Tudo funcionando so falta limpar o codigo. -> em andamento ...
-
 ## Demonstração:
 
+Finalizado -> 18/03/2022 16:29:00
 link youtube-> https://youtu.be/sQi8p3bZ2uI
