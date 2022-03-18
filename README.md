@@ -48,7 +48,7 @@ O candidato também terá que desenvolver uma tela para adicionar descontos no v
 ## ⚙️ Funcionalidades
 
 - [x] CRUD de pedidos
-- [ ] Categorizar por cor
+- [x] Categorizar por cor
 - [x] Aplicar descontos
 
 ---
