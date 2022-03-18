@@ -18,6 +18,7 @@ namespace CRUD_MVC5_AngularJs.Controllers
             {
                 List<Pedido> listarPedidos = db.Pedidos.ToList();
 
+
                 return Json(listarPedidos, JsonRequestBehavior.AllowGet);
             }
         }
@@ -81,9 +82,10 @@ namespace CRUD_MVC5_AngularJs.Controllers
         {
             using (var db = new PedidosEntities())
             {
+                var estad = Estado(pedido);
                 var pedidoAtualizado = db.Pedidos.Find(pedido.PedidoId);
-                //if (pedidoAtualizado == null || Estado(pedido) == 1)  //<---quando arrumar o problema da data trocar o if de baixo por esse que o desconto só vai acontecer com produtos que não estão vencidos
-                if (pedidoAtualizado == null)
+                if (pedidoAtualizado == null || estad==1)  //<---quando arrumar o problema da data trocar o if de baixo por esse que o desconto só vai acontecer com produtos que não estão vencidos
+                //if (pedidoAtualizado == null)
                 {
                     return Json(new { success = false });
                 }

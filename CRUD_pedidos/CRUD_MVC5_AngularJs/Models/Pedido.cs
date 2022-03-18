@@ -19,8 +19,8 @@ namespace CRUD_MVC5_AngularJs.Models
         public string nome_produto { get; set; }
         public Nullable<decimal> valor { get; set; }
 
-        [Display(Name = "Date Edit")]
-        [DisplayFormat(ApplyFormatInEditMode =true, DataFormatString = "{0:dd/MM/yyyy}")]
+        //[Display(Name = "Date Edit")]
+        //[DisplayFormat(ApplyFormatInEditMode =true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime data_vencimento { get; set; }
     }
 }

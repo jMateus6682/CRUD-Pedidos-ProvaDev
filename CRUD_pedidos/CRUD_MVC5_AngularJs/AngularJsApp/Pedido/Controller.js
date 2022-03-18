@@ -30,6 +30,13 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
     function DefinirCor() {
         $scope.setarCor = 'DodgerBlue';
     }
+    /*
+    //string para data
+    function toDate(dateStr) {
+        var parts = dateStr.split("/");
+        return new Date(parts[2], parts[1] - 1, parts[0]);
+    }
+    */
 
     //Aqui estamos carregando todos os dados gravados do Pedido quando a página for recarregada:
     carregarPedidos();
@@ -39,13 +46,37 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
         var listarPedidos = pedidoService.getTodosPedidos();
 
         listarPedidos.then(function (d) {
-            //se tudo der certo:
-            $scope.Pedidos = d.data;
+            //arrumando a exibição da data
+            var lista = d.data;
+            var DataVencimento;
+            lista.forEach(item => {
+                item.data_vencimento = moment(item.data_vencimento).format("DD/MM/YYYY");
+            });
+            /*
+             
+            if (DataVencimento < Agora) {
+                return 1;
+            } else if (DataVencimento > Agora.AddDays(3)) {
+                return 2;
+            }
+            else {
+                return 3;
+            }
+             */
             DefinirCor();
+            //se tudo der certo:
+            $scope.Pedidos = lista;
+            
         },
             function () {
                 alert("Ocorreu um erro ao tentar listar todos os pedidos!");
             });
+    }
+
+    //teste converter data 
+    $scope.ConverterJsonDateToJavascriptDate =function (data) {
+        return data.format("dd/MM/yyyy");
+        
     }
 
     //Método responsável por adicionar cada propriedade de um Novo Pedido:
@@ -56,7 +87,6 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
             nome_produto: $scope.nome_produto,
             valor: $scope.valor,
             data_vencimento: $scope.data_vencimento
-            //data_vencimento: Convert.ToDateTime($scope.data_vencimento)
         };
 
         var adicionarInfos = pedidoService.adicionarPedido(pedido);

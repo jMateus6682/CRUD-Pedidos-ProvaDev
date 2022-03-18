@@ -17,12 +17,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="func in Pedidos" >
+                <tr ng-repeat="func in Pedidos">
                     <td class="text-center">{{func.PedidoId}}</td>
                     <td class="text-center">{{func.nome_produto}}</td>
                     <td class="text-center">{{func.valor}}</td>
-                    <td ng-style ="{ 'background-color': setarCor }" class="text-center">
-                        {{func.data_vencimento |  date:"yyyy/MM/dd"}}
+                    <td ng-style="{ 'background-color': setarCor }" class="text-center">
+                        {{func.data_vencimento}}
                     </td>
                     <td class="text-center" style="width: 200px;">
                         <a href="#"
@@ -182,4 +182,6 @@
     <script src="~/AngularJsApp/Pedido/Module.js"></script>
     <script src="~/AngularJsApp/Pedido/Service.js"></script>
     <script src="~/AngularJsApp/Pedido/Controller.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 }
