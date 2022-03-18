@@ -134,7 +134,9 @@ Update-Package -reinstal
 
 ## Observação:
 
-CRUD e a função de desconto para produtos que não venceram funcionando, falta só terminar de arrumar as cores do background da data de acordo com o estado do pedido(vencido = vermelho / quase vencendo = amarelo/ valido = verde).
+CRUD e a função de desconto para produtos que não venceram funcionando.
+
+Falta só terminar de arrumar as cores do background da data de acordo com o estado do pedido(vencido = vermelho / quase vencendo = amarelo/ valido = verde). E limpar o código (comentários desnecessários).
 
 ## Demonstração:
 

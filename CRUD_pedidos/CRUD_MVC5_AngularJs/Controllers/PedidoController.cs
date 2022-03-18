@@ -84,8 +84,7 @@ namespace CRUD_MVC5_AngularJs.Controllers
             {
                 var estad = Estado(pedido);
                 var pedidoAtualizado = db.Pedidos.Find(pedido.PedidoId);
-                if (pedidoAtualizado == null || estad==1)  //<---quando arrumar o problema da data trocar o if de baixo por esse que o desconto só vai acontecer com produtos que não estão vencidos
-                //if (pedidoAtualizado == null)
+                if (pedidoAtualizado == null || estad==1)
                 {
                     return Json(new { success = false });
                 }
@@ -128,7 +127,6 @@ namespace CRUD_MVC5_AngularJs.Controllers
         public int Estado(Pedido pedido)
         {
             DateTime Agora = DateTime.Now;
-            //DateTime DataVencimento = pedido.data_vencimento.GetValueOrDefault();
             DateTime DataVencimento = pedido.data_vencimento;
             // 1= Vencido; 2 = Valido; 3= QuaseVencendo;
             if (DataVencimento < Agora) {
