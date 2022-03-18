@@ -55,7 +55,7 @@ O candidato também terá que desenvolver uma tela para adicionar descontos no v
 
 ## 🎨 Layout
 
-<a href="https://ibb.co/DWvjkLZ"><img src="https://i.ibb.co/XLKGpVq/layout.png" alt="layout" border="0"></a>
+<a href="https://ibb.co/Fsw8xpw"><img src="https://i.ibb.co/yhygf2y/LAYOUTT.png" alt="LAYOUTT" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>fotos mundo bita</a><br />
 
 ---
 
