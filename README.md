@@ -115,10 +115,19 @@ Clique no Update Database:
    <a href="https://ibb.co/wJQVswC"><img src="https://i.ibb.co/PTWKQ94/executar.png" alt="executar" border="0"></a>
 
 Caso de o erro: Erro ao encontrar o arquivo: roslyn\csc.exe
+
+<a href="https://ibb.co/JBr364x"><img src="https://i.ibb.co/tmYLjtZ/ERRo.png" alt="ERRo" border="0"></a>
+
 Use o comando no console do NuGet
 
 ```
 Install-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -Version 2.0.1
+```
+
+E caso de outros erros de pacote do NuGet, use o comando abaxo para reinstalar os pacotes do projeto:
+
+```
+Update-Package -reinstal
 ```
 
 ---
