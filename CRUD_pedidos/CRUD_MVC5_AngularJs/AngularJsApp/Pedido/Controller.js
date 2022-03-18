@@ -28,7 +28,7 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
 
     // usando essa função para definir a cor enquanto nao arrumei o problema da data
     function DefinirCor() {
-        $scope.setarCor = 'DodgerBlue';
+        $scope.setarCor = 'yellow';
     }
     /*
     //string para data
@@ -94,10 +94,10 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
         adicionarInfos.then(function (d) {
             if (d.data.success === true) {
                 carregarPedidos();
-                alert("Pedido Adicionado com Sucesso!");
+                //alert("Pedido Adicionado com Sucesso!");
 
                 $scope.limparDados();
-            } else { alert("Pedido não Adicionado!"); }
+            } else { alert("Ocorreu um erro ao tentar adicionar um Novo Pedido!!"); }
         },
             function () {
                 alert("Ocorreu um erro ao tentar adicionar um Novo Pedido!");
@@ -149,11 +149,11 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
         atualizarInfos.then(function (d) {
             if (d.data.success === true) {
                 carregarPedidos();
-                alert("Pedido Atualizado com Sucesso!");
+                //alert("Pedido Atualizado com Sucesso!");
                 $scope.limparDadosAtualizados();
             }
             else {
-                alert("Pedido não Atualizado");
+                alert("Ocorreu um erro ao tentar atualizar o Pedido!!");
             }
         },
             function () {
@@ -173,7 +173,7 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
         descontar.then(function (d) {
             if (d.data.success === true) {
                 carregarPedidos();
-                alert("Desconto realizado com sucesso!");
+                //alert("Desconto realizado com sucesso!");
                 $scope.limparDadosAtualizados();
             }
             else {
@@ -181,7 +181,7 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
             }
         },
             function () {
-                alert("Ocorreu um erro ao tentar atualizar o Pedido!");
+                alert("Ocorreu um erro ao tentar adicionar o Desconto!");
             });
     }
 
@@ -202,10 +202,10 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
             if (d.data.success === true) {
                 carregarPedidos();
 
-                alert("Pedido excluído com Sucesso!");
+                //alert("Pedido excluído com Sucesso!");
             }
             else {
-                alert("Pedido não excluído!");
+                alert("Erro ao excluir o pedido!");
             }
         });
     }
