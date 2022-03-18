@@ -19,7 +19,7 @@
                 <tr ng-repeat="func in Pedidos">
                     <td class="text-center">{{func.nome_produto}}</td>
                     <td class="text-center">R$ {{func.valor}}</td>
-                    <td ng-style="{ 'background-color': setarCor }" class="text-center">
+                    <td ng-style="getStyle(func.data_vencimento)" class="text-center">
                         {{func.data_vencimento}}
                     </td>
                     <td class="text-center" style="width: 200px;">

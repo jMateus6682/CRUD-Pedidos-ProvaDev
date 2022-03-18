@@ -7,36 +7,54 @@
 // Controller - Pedido:
 pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
 
+    function ESTADO(estdata)
+    {
+        var Agora = new Date();
+        Agora = Date.parse(Agora);
 
-    /* 
-    //Por algum motivo a converção do formato da data não esta funcionado 
-    //e consequentemente quebrando a função do desconto e da cor
-    // Quando arrumar o problema com a data descomentar getStyle 
-    //e trocar no index o ng-style do data_vencimento para ng-style="getStyle(func)"
-    $scope.getStyle = function (Pedido) {
-        var estad = pedidoService.getEstado(Pedido);
-            if (estad == 1) {
-                return { 'background-color': 'red' };
-            } else if (estad == 2) {
+        var AgoraMaisTres = new Date();
+        AgoraMaisTres.setDate(AgoraMaisTres.getDate() + 3);
+        AgoraMaisTres = Date.parse(AgoraMaisTres);
+       
+        var DataVencimento = estdata;
+        DataVencimento = Date.parse(moment(DataVencimento, "DD/MM/YYYY").format("MM/DD/YYYY"));
+
+        //console.log(new Date().addDays(3));
+        /*
+        */
+        // 1= Vencido; 2 = Valido; 3= QuaseVencendo;
+        if (DataVencimento < Agora) {
+            return 1;
+        } else if (DataVencimento > AgoraMaisTres) {
+            return 2;
+        }
+        else {
+            return 3;
+        }
+    }
+
+    function formataData(value) {
+        if (value == null)
+            return null;
+        var dataTexto = value.replace('/', '').replace('/', '').replace('Date', '').replace('(', '').replace(')', '');
+        var date = new Date(parseInt(dataTexto));
+        return pad(2, date.getDate().toString(), '0') + "/" + pad(2, (date.getMonth() + 1).toString(), '0') + "/" + pad(4, date.getFullYear().toString(), '0');
+    };
+
+    $scope.getStyle = function (styledata) {
+        /*
+        console.log("{{func.data_vencimento}} = " + Date.parse(styledata));
+        return { 'background-color': 'yellow' };
+        */
+        var estado = ESTADO(styledata);
+            if (estado == 1) {
+                    return { 'background-color': 'red' };
+            } else if (estado == 2) {
                 return { 'background-color': 'green' };
             } else {
                 return { 'background-color': 'yellow' };
             }
-        return { 'background-color':'red' };
     }
-    */
-
-    // usando essa função para definir a cor enquanto nao arrumei o problema da data
-    function DefinirCor() {
-        $scope.setarCor = 'yellow';
-    }
-    /*
-    //string para data
-    function toDate(dateStr) {
-        var parts = dateStr.split("/");
-        return new Date(parts[2], parts[1] - 1, parts[0]);
-    }
-    */
 
     //Aqui estamos carregando todos os dados gravados do Pedido quando a página for recarregada:
     carregarPedidos();
@@ -46,25 +64,13 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
         var listarPedidos = pedidoService.getTodosPedidos();
 
         listarPedidos.then(function (d) {
-            //arrumando a exibição da data
+            //formatando a exibição da data
+
             var lista = d.data;
-            var DataVencimento;
             lista.forEach(item => {
                 item.data_vencimento = moment(item.data_vencimento).format("DD/MM/YYYY");
             });
-            /*
-             
-            if (DataVencimento < Agora) {
-                return 1;
-            } else if (DataVencimento > Agora.AddDays(3)) {
-                return 2;
-            }
-            else {
-                return 3;
-            }
-             */
-            DefinirCor();
-            //se tudo der certo:
+
             $scope.Pedidos = lista;
             
         },
@@ -72,13 +78,7 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
                 alert("Ocorreu um erro ao tentar listar todos os pedidos!");
             });
     }
-
-    //teste converter data 
-    $scope.ConverterJsonDateToJavascriptDate =function (data) {
-        return data.format("dd/MM/yyyy");
-        
-    }
-
+   
     //Método responsável por adicionar cada propriedade de um Novo Pedido:
     $scope.adicionarPedido = function () {
 
