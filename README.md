@@ -141,8 +141,6 @@ Tentei arrumar a conversão da data de varias maneiras que vi nos fóruns, mas n
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/hfxFfVV/tentando-arrumarcor.png" alt="tentando-arrumarcor" border="0"></a>
 
-Acho que é alguma coisa com o angular js que fiz errado.
-
 ## Demonstração:
 
 <a href="https://ibb.co/D1fXN8g"><img src="https://i.ibb.co/2F32wsY/giff.gif" alt="giff" border="0"></a>
