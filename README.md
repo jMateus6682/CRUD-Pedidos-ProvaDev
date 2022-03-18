@@ -129,4 +129,4 @@ CRUD e a função de desconto para produtos que não venceram funcionando, falta
 
 ## Demonstração:
 
-<a href="https://ibb.co/D1fXN8g"><img src="https://i.ibb.co/2F32wsY/giff.gif" alt="giff" border="0"></a>
+em desenvolvimento...
