@@ -133,6 +133,7 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
 
     //Método responsável por resgatar dados para a exclusão do Pedido:
     $scope.excluirPedidoPorId = function (pedido) {
+        $scope.AtualizadoPedidoId = pedido.PedidoId;
         $scope.AtualizadoNome_produto = pedido.nome_produto;
         $scope.AtualizadoValor = pedido.valor;
         $scope.AtualizadoData_vencimento = pedido.data_vencimento;
