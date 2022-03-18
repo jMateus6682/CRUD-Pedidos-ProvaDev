@@ -7,6 +7,7 @@
 // Controller - Pedido:
 pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
 
+    //retorna o estado do pedido-> 1= Vencido; 2 = Valido; 3= QuaseVencendo;
     function ESTADO(estdata)
     {
         var Agora = new Date();
@@ -19,10 +20,6 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
         var DataVencimento = estdata;
         DataVencimento = Date.parse(moment(DataVencimento, "DD/MM/YYYY").format("MM/DD/YYYY"));
 
-        //console.log(new Date().addDays(3));
-        /*
-        */
-        // 1= Vencido; 2 = Valido; 3= QuaseVencendo;
         if (DataVencimento < Agora) {
             return 1;
         } else if (DataVencimento > AgoraMaisTres) {
@@ -33,22 +30,11 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
         }
     }
 
-    function formataData(value) {
-        if (value == null)
-            return null;
-        var dataTexto = value.replace('/', '').replace('/', '').replace('Date', '').replace('(', '').replace(')', '');
-        var date = new Date(parseInt(dataTexto));
-        return pad(2, date.getDate().toString(), '0') + "/" + pad(2, (date.getMonth() + 1).toString(), '0') + "/" + pad(4, date.getFullYear().toString(), '0');
-    };
-
-    $scope.getStyle = function (styledata) {
-        /*
-        console.log("{{func.data_vencimento}} = " + Date.parse(styledata));
-        return { 'background-color': 'yellow' };
-        */
+    $scope.getStyle = function (styledata)
+    {
         var estado = ESTADO(styledata);
             if (estado == 1) {
-                    return { 'background-color': 'red' };
+                return { 'background-color': 'red' };
             } else if (estado == 2) {
                 return { 'background-color': 'green' };
             } else {
@@ -63,9 +49,10 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
     function carregarPedidos() {
         var listarPedidos = pedidoService.getTodosPedidos();
 
-        listarPedidos.then(function (d) {
-            //formatando a exibição da data
+        listarPedidos.then(function (d)
+        {
 
+            //formatando a exibição da data
             var lista = d.data;
             lista.forEach(item => {
                 item.data_vencimento = moment(item.data_vencimento).format("DD/MM/YYYY");
@@ -78,10 +65,9 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
                 alert("Ocorreu um erro ao tentar listar todos os pedidos!");
             });
     }
-   
+
     //Método responsável por adicionar cada propriedade de um Novo Pedido:
     $scope.adicionarPedido = function () {
-
         var pedido = {
             pedidoId: $scope.pedidoId,
             nome_produto: $scope.nome_produto,
@@ -92,11 +78,11 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
         var adicionarInfos = pedidoService.adicionarPedido(pedido);
 
         adicionarInfos.then(function (d) {
-            if (d.data.success === true) {
+            if (d.data.success === true)
+            {
                 carregarPedidos();
-                //alert("Pedido Adicionado com Sucesso!");
-
                 $scope.limparDados();
+
             } else { alert("Ocorreu um erro ao tentar adicionar um Novo Pedido!!"); }
         },
             function () {
@@ -113,7 +99,8 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
     }
 
     //Limpar os campos no painel do desconto:
-    $scope.adicionarDesconto = function (pedido) {
+    $scope.adicionarDesconto = function (pedido)
+    {
         $scope.AtualizadoPedidoId = pedido.PedidoId;
         $scope.AtualizadoNome_produto = pedido.nome_produto;
         $scope.AtualizadoValor = '';
@@ -122,8 +109,8 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
     }
 
     //Método responsável por atualizar Pedido pelo Id:
-    $scope.atualizarPedidoPorId = function (pedido) {
-
+    $scope.atualizarPedidoPorId = function (pedido)
+    {
         $scope.AtualizadoPedidoId = pedido.PedidoId;
         $scope.AtualizadoNome_produto = pedido.nome_produto;
         $scope.AtualizadoValor = pedido.valor;
@@ -132,7 +119,8 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
 
 
     //Método responsável por resgatar dados para a exclusão do Pedido:
-    $scope.excluirPedidoPorId = function (pedido) {
+    $scope.excluirPedidoPorId = function (pedido)
+    {
         $scope.AtualizadoPedidoId = pedido.PedidoId;
         $scope.AtualizadoNome_produto = pedido.nome_produto;
         $scope.AtualizadoValor = pedido.valor;
@@ -141,7 +129,8 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
     }
 
     //Método responsável por atualizar dados do Pedido:
-    $scope.atualizarPedido = function () {
+    $scope.atualizarPedido = function ()
+    {
         var pedido = {
             PedidoId: $scope.AtualizadoPedidoId,
             Nome_produto: $scope.AtualizadoNome_produto,
@@ -176,7 +165,6 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
         descontar.then(function (d) {
             if (d.data.success === true) {
                 carregarPedidos();
-                //alert("Desconto realizado com sucesso!");
                 $scope.limparDadosAtualizados();
             }
             else {
@@ -205,8 +193,6 @@ pedidoApp.controller('pedidoCtrl', function ($scope, pedidoService) {
 
             if (d.data.success === true) {
                 carregarPedidos();
-
-                //alert("Pedido excluído com Sucesso!");
             }
             else {
                 alert("Erro ao excluir o pedido!");

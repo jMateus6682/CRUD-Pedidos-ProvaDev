@@ -12,18 +12,6 @@ pedidoApp.service('pedidoService', function ($http) {
         return $http.get("/Pedido/GetPedido");
     }
 
-    //Método responsável por mostrar o estado do pedido de acordo com a data: READ
-    this.getEstado = function (pedido) {
-
-        var request = $http({
-            method: 'post',
-            url: '/Pedido/Estado',
-            data: pedido
-        });
-
-        return request;
-    }
-
     //Método responsável por Adicionar Pedido: CREATE
     this.adicionarPedido = function (pedido) {
 
