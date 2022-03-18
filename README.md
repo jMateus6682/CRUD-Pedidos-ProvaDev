@@ -123,27 +123,9 @@ Install-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -Version 2.0.
 
 ---
 
-## 😢 Observação:
+## Observação:
 
-Devido a um problema na conversão do formato DateTime para uma string formatada ("dd/MM/yyyy") o formato de exibição das datas ficaram erradas:
-
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/qM225kw/formato-errado.png" alt="formato-errado" border="0"></a>
-
-Consequentemente quebrou a função de definir a cor do background de acordo com o estado, porque o Pedido.data_vencimento no formato estranho como na imagem acima, ao converter, esta chegando na função como "01/01/0001", mesmo no banco de dados mostrando a data certa, sendo assim, sempre retornando como produto vencido.
-
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/YPVZxsK/fun-o-estado.png" alt="fun-o-estado" border="0"></a>
-
-De tabela quebrou tambem a parte da função de dar desconto que bloqueia o adicionar o desconto para um produto vencido, deixei comentado essa parte.
-
-<a href="https://ibb.co/Hp4kYKk"><img src="https://i.ibb.co/zHx0bm0/fun-o-Dar-Desconto.png" alt="fun-o-Dar-Desconto" border="0"></a>
-
-Tentei arrumar a conversão da data de varias maneiras que vi nos fóruns, mas nenhuma funciono.
-
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/hfxFfVV/tentando-arrumarcor.png" alt="tentando-arrumarcor" border="0"></a>
-
-18/03/2022 - Achei onde esta o problema da data, estou tentando arrumar
-
-11:39 - CONSEGUI ARRUMAR DAQUIAPOCO EU FAÇO O COMMIT 🙂🙂🙂🙂🙂🙂🙂🙂
+CRUD e a função de desconto para produtos que não venceram funcionando, falta só terminar de arrumar as cores do background da data de acordo com o estado do pedido(vencido = vermelho / quase vencendo = amarelo/ valido = verde).
 
 ## Demonstração:
 
