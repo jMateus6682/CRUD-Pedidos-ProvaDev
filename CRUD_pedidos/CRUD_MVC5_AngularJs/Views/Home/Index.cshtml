@@ -10,7 +10,6 @@
         <table class="table table-bordered">
             <thead style="background-color: grey;">
                 <tr>
-                    <th class="text-center">Id Pedido</th>
                     <th class="text-center">Nome do Pedido</th>
                     <th class="text-center">Valor</th>
                     <th class="text-center">Data de Vencimento</th>
@@ -18,9 +17,8 @@
             </thead>
             <tbody>
                 <tr ng-repeat="func in Pedidos">
-                    <td class="text-center">{{func.PedidoId}}</td>
                     <td class="text-center">{{func.nome_produto}}</td>
-                    <td class="text-center">{{func.valor}}</td>
+                    <td class="text-center">R$ {{func.valor}}</td>
                     <td ng-style="{ 'background-color': setarCor }" class="text-center">
                         {{func.data_vencimento}}
                     </td>
@@ -65,7 +63,7 @@
                                 <input class="form-control" type="text" name="nome" ng-model="nome_produto" placeholder="Nome Pedido" />
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="number" name="nome" ng-model="valor" placeholder="Valor" />
+                                <input class="form-control" type="number" name="nome" ng-model="valor" placeholder="Valor R$" />
                             </div>
                             <div class="form-group">
                                 <input class="form-control" type="date" name="nome" ng-model="data_vencimento" placeholder="Data de Vencimento" />
@@ -98,7 +96,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="text-info"> Valor:</label>
-                                <input class="form-control" name="Valor" ng-model="AtualizadoValor" type="text" placeholder="Valor" />
+                                <input class="form-control" name="Valor" ng-model="AtualizadoValor" type="text" placeholder="Valor R$" />
                             </div>
                             <div class="form-group">
                                 <label class="text-info"> Data de Vencimento:</label>
@@ -161,8 +159,9 @@
                     </div>
                     <div class="modal-body">
                         <div>
-                            <p>Id do Pedido : {{AtualizadoPedidoId}}</p>
                             <p>Nome do Pedido : {{AtualizadoNome_produto}}</p>
+                            <p>Valor: R$ {{AtualizadoValor}}</p>
+                            <p>Data de Vencimento : {{AtualizadoData_vencimento}}</p>
                         </div>
                     </div>
                     <div class="modal-footer">
